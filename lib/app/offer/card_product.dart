@@ -1,14 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:flutter_ecommerce/app/model/productdata/product.dart';
-import 'package:flutter_ecommerce/app/service/services_data/cart_services.dart';
+import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
 import 'package:flutter_ecommerce/app/offer/detail_imfrom.dart';
 
-class CardProduct extends StatelessWidget {
-  final Product product;
-  const CardProduct({super.key, required this.product});
+class CardProduct extends StatefulWidget {
+  final Eproduct allproduct;
+  const CardProduct({super.key, required this.allproduct});
 
+  @override
+  State<CardProduct> createState() => _CardProductState();
+}
+
+class _CardProductState extends State<CardProduct> {
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -17,7 +20,7 @@ class CardProduct extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailImfrom(product: product),
+            builder: (context) => DetailImfrom(product: widget.allproduct),
           ),
         );
       },
@@ -33,24 +36,24 @@ class CardProduct extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                child: Image.network(
-                  product.imageUrl,
+                child: Image.asset(
+                  widget.allproduct.imageUrl,
                   height: double.infinity,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return const Icon(Icons.error, color: Colors.red, size: 40);
                   },
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return Center(
-                      child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes!
-                            : null,
-                      ),
-                    );
-                  },
+                  // loadingBuilder: (context, child, loadingProgress) {
+                  //   if (loadingProgress == null) return child;
+                  //   return Center(
+                  //     child: CircularProgressIndicator(
+                  //       value: loadingProgress.expectedTotalBytes != null
+                  //           ? loadingProgress.cumulativeBytesLoaded /
+                  //                 loadingProgress.expectedTotalBytes!
+                  //           : null,
+                  //     ),
+                  //   );
+                  // },
                 ),
               ),
               Padding(
@@ -59,14 +62,14 @@ class CardProduct extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      product.name,
+                      widget.allproduct.name,
                       style: Theme.of(
                         context,
                       ).textTheme.labelLarge?.copyWith(fontSize: 15),
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '\$ ${product.price}',
+                      '\$ ${widget.allproduct.price}',
                       style: Theme.of(
                         context,
                       ).textTheme.labelSmall?.copyWith(fontSize: 13),
@@ -91,13 +94,11 @@ class CardProduct extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    onPressed: product.stock > 0
-                        ? () {
-                            final cartServices = CartServices();
-                            cartServices.addProduct(product);
-                            // print(cartServices.cartNotifier.value);
-                          }
-                        : null,
+                    onPressed: () {
+                      // final cartServices = CartServices();
+                      // cartServices.addProduct(product);
+                      // print(cartServices.cartNotifier.value);
+                    },
                     label: Text(
                       'Add to cart',
                       style: TextStyle(

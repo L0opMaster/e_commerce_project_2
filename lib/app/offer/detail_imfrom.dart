@@ -1,15 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:flutter_ecommerce/app/model/productdata/product.dart';
+import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
 import 'package:flutter_ecommerce/app/cart/cart_screen.dart';
 
 class DetailImfrom extends StatelessWidget {
-  final Product product;
+  // final Product product;
+  final Eproduct product;
   const DetailImfrom({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -25,19 +26,17 @@ class DetailImfrom extends StatelessWidget {
               icon: Icon(
                 Icons.shopping_cart,
                 size: 30,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.surface,
               ),
             ),
           ),
         ],
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.onPrimary,
-        ),
+        // backgroundColor: Theme.of(context).colorScheme.surface,
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.surface),
         title: Text(
           product.name,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            color: Theme.of(context).colorScheme.onPrimary,
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+            color: Theme.of(context).colorScheme.surface,
           ),
         ),
       ),
@@ -48,7 +47,8 @@ class DetailImfrom extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           clipBehavior: Clip.antiAlias,
-          // elevation: 3,
+          color: Colors.white,
+          elevation: 3,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -56,7 +56,7 @@ class DetailImfrom extends StatelessWidget {
               // ---- Image ----
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.network(
+                child: Image.asset(
                   product.imageUrl,
                   errorBuilder: (context, error, stackTrace) {
                     return Center(
@@ -69,17 +69,17 @@ class DetailImfrom extends StatelessWidget {
                       ),
                     );
                   },
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return Center(
-                      child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes!
-                            : null,
-                      ),
-                    );
-                  },
+                  // loadingBuilder: (context, child, loadingProgress) {
+                  //   if (loadingProgress == null) return child;
+                  //   return Center(
+                  //     child: CircularProgressIndicator(
+                  //       value: loadingProgress.expectedTotalBytes != null
+                  //           ? loadingProgress.cumulativeBytesLoaded /
+                  //                 loadingProgress.expectedTotalBytes!
+                  //           : null,
+                  //     ),
+                  //   );
+                  // },
                   width: double.infinity,
                   height: 250,
                   fit: BoxFit.cover,
@@ -96,8 +96,10 @@ class DetailImfrom extends StatelessWidget {
                   children: [
                     Text(
                       product.name,
-                      style: Theme.of(context).textTheme.headlineMedium
-                          ?.copyWith(fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
                     ),
 
                     const SizedBox(height: 10),
@@ -112,7 +114,7 @@ class DetailImfrom extends StatelessWidget {
                     Text(
                       'Available to add: ${product.stock} (Total Stock: ${product.stock})',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -120,13 +122,17 @@ class DetailImfrom extends StatelessWidget {
                     const SizedBox(height: 15),
                     Text(
                       'Description',
-                      style: Theme.of(context).textTheme.headlineSmall
-                          ?.copyWith(fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
                     ),
                     const SizedBox(height: 20),
                     Text(
                       product.description,
-                      style: Theme.of(context).textTheme.titleSmall,
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: colorScheme.secondary,
+                      ),
                     ),
                     const SizedBox(height: 15),
                     Row(
@@ -134,12 +140,20 @@ class DetailImfrom extends StatelessWidget {
                       children: [
                         IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_outline, size: 30),
+                          icon: Icon(
+                            Icons.remove_circle_outline,
+                            size: 30,
+                            color: colorScheme.primary,
+                          ),
                         ),
                         Text('1'),
                         IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.add_circle_outline, size: 30),
+                          icon: Icon(
+                            Icons.add_circle_outline,
+                            size: 30,
+                            color: colorScheme.primary,
+                          ),
                         ),
                       ],
                     ),
@@ -148,7 +162,7 @@ class DetailImfrom extends StatelessWidget {
               ),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                  // backgroundColor: Theme.of(context).colorScheme.onPrimary,
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -160,14 +174,14 @@ class DetailImfrom extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
                   child: Text(
                     'Add to cart',
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.surface,
                     ),
                   ),
                 ),
                 icon: Icon(
                   Icons.shopping_cart,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Theme.of(context).colorScheme.surface,
                 ),
               ),
             ],

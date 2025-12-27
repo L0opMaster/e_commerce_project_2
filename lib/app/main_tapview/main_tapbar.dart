@@ -133,7 +133,10 @@ class _MainTapbarState extends State<MainTapbar> {
                   title: 'Offer',
                   icon: 'assets/image/tab_offer.png',
                   isSelected: selectPage == 2,
-                  onTab: () => _onTabSelected(2, pageWidget: const OfferView()),
+                  onTab: () => _onTabSelected(
+                    2,
+                    pageWidget: OfferView(allproductOffer: allProduct),
+                  ),
                 ),
                 const SizedBox(width: 20),
                 RoundManuTabButton(
