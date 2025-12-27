@@ -1,0 +1,259 @@
+{
+  "camera": [
+    {
+      "id": "1",
+      "name": "PowerShot V10",
+      "location": "Phnom Phen",
+      "description": "The PowerShot V10 is a compact and portable vlogging camera characterized by its size of approximately 63.4 mm x 34.3 mm x 90 mm. It is equipped with a 1.0-inch CMOS sensor and 13.1 megapixels, powered by a DIGIC X image processor, enabling 4K video recording with a 19mm wide-angle lens. The camera supports face tracking autofocus and various video modes such as Auto Movie and Smooth Skin. Connectivity options include the Canon Camera Connect app for livestreaming and USB connection for use as a webcam.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/ca_powershorv10.jpg",
+      "stock": 9
+    },
+    {
+      "id": "2",
+      "name": "PowerShot G5X MarkII",
+      "location": "Phnom Phen",
+      "description": "Equipped with a 0.39-inch OLED electronic viewfinder, the Canon PowerShot G5 X Mark II features a DIGIC 8 image processor and a 1.0-inch, 20.1-million effective-pixel stacked CMOS sensor. It supports 4K video recording and continuous shooting at up to 30 frames per second, while its 5x zoom lens (24–120 mm equivalent) with a f/1.8–f/2.8 aperture provides high image quality with minimal blur and noise in low light.",
+      "price": 249.99,
+      "imageUrl": "assets/image/ca_PowerShotG5XMarkII.jpg",
+      "stock": 22
+    },
+    {
+      "id": "3",
+      "name": "PowerShotG5X Mark III",
+      "location": "Phnom Phen",
+      "description": "The Canon PowerShot G7 X Mark III features a DIGIC 8 image processor and a 20.1 MP stacked CMOS sensor, enabling 4K video recording and high-speed shooting at 30 fps. It supports live streaming on YouTube and includes a 24–100 mm zoom lens for high-quality images in low light and attractive background blur.",
+      "price": 249.99,
+      "imageUrl": "assets/image/ca_PowerShotG7XMarkIII.jpg",
+      "stock": 22
+    },
+    {
+      "id": "4",
+      "name": "PowerShot SX70 HS",
+      "location": "Phnom Phen",
+      "description": "The PowerShot SX70 HS is a versatile camera with a 65x optical zoom and 20.3 megapixel CMOS sensor. It features a high-definition OLED EVF, redesigned grip, improved button layout, and an eye sensor for automatic display switching. Powered by the DIGIC 8 image processor, it offers Dual Sensing IS, can shoot at 10 frames per second, and supports 4K video and time lapse.",
+      "price": 249.99,
+      "imageUrl": "assets/image/ca_PowerShotSX70HS.jpg",
+      "stock": 22
+    }
+  ],
+  "phone": [
+    {
+      "id": "5",
+      "name": "iPhone 17 Pro",
+      "location": "Phnom Phen",
+      "description": "The latest iPhone boasts a 6.3-inch ProMotion display featuring a 120Hz refresh rate, Ceramic Shield 2, and a forged aluminum unibody. It includes a 48MP rear camera with 8x optical zoom, an 18MP front camera with Center Stage, and Dual Capture video capabilities. Powered by the A19 Pro chip and a 6-core GPU, it offers up to 33 hours of video playback and operates on iOS 26, enhanced with Apple Intelligence.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/iphone17_pro.jpg",
+      "stock": 9
+    },
+    {
+      "id": "6",
+      "name": "iPhone Air",
+      "location": "Phnom Phen",
+      "description": "iOS 26 features a new look and smarter functionalities, powered by the A19 Pro chip and 5-core GPU, ensuring enhanced performance. Key specifications include all-day battery life, a 48MP Fusion Main camera with 2x optical zoom, an 18MP Center Stage front camera, a 6.5-inch ProMotion display up to 120Hz, and a lightweight titanium design with increased scratch resistance.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/iphoneAir.jpg",
+      "stock": 9
+    },
+    {
+      "id": "7",
+      "name": "iPhone 17",
+      "location": "Phnom Phen",
+      "description": "Apple's latest device features a 6.3-inch ProMotion display with a 120Hz refresh rate, an 18MP front camera, and a 48MP Dual Fusion camera system. It is powered by the A19 chip and offers extensive battery life with iOS 26, utilizing Apple Intelligence for enhanced functionalities.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/iphone-17.jpg",
+      "stock": 9
+    },
+    {
+      "id": "8",
+      "name": "iPhone 16e",
+      "location": "Phnom Phen",
+      "description": "iOS 16 features a 6.1-inch Super Retina XDR display and is powered by the A18 chip, allowing for 26 hours of video playback. It includes a 48MP Fusion Main camera, a 2x Telephoto lens, a 12MP front camera, and a customizable Action button.",
+      "price": 249.99,
+      "imageUrl": "assets/image/iphone16e.jpg",
+      "stock": 22
+    }
+  ],
+  "computer": [
+    {
+      "id": "9",
+      "name": "MacBook Pro 14",
+      "location": "Phnom Phen",
+      "description": "Supercharged by M5, the MacBook Pro, with support from M4 Pro or M4 Max, offers up to 24 hours of battery life. It includes a 14.2 Liquid Retina XDR display, a 12MP Center Stage camera, studio-quality microphones, and six speakers with Spatial Audio, alongside multiple connectivity options.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/mbp-14pro.png",
+      "stock": 9
+    },
+    {
+      "id": "10",
+      "name": "MacBook Air 13",
+      "location": "Phnom Phen",
+      "description": "Lightweight and under two centimeters thick, the MacBook Air features a 10-core CPU and GPU from the Apple M4 chip, delivering smooth performance and up to 18 hours of battery life. It includes a 13.6-inch Liquid Retina display with 1 billion colors and a 12MP Center Stage camera, suitable for personal and professional use.",
+      "price": 249.99,
+      "imageUrl": "assets/image/macbook-air-13.png",
+      "stock": 22
+    },
+    {
+      "id": "11",
+      "name": "MacBook Pro 16",
+      "location": "Phnom Phen",
+      "description": "The MacBook Pro, powered by M4 Pro or M4 Max, offers up to 24 hours of battery life, a 16.2\" Liquid Retina XDR display, a 12MP Center Stage camera, studio-quality microphones, six Spatial Audio speakers, and multiple connectivity options like Thunderbolt 5 and HDMI ports.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/macBookPro16.jpg",
+      "stock": 9
+    },
+    {
+      "id": "12",
+      "name": "MacBook Air 15",
+      "location": "Phnom Phen",
+      "description": "Lightweight and 2 cm thick, the MacBook Air features a powerful 10-core CPU and GPU from the Apple M4 chip, offering smooth performance and up to 18 hours of battery life. Its 15.3-inch Liquid Retina display supports one billion colors, and the 12MP Center Stage camera enhances video calls, making it ideal for personal use.",
+      "price": 249.99,
+      "imageUrl": "assets/image/macbook-air-13.png",
+      "stock": 22
+    }
+  ],
+  "watch": [
+    {
+      "id": "13",
+      "name": "Apple Watch SE 3",
+      "location": "Phnom Phen",
+      "description": "Track sleep quality and wrist temperature detection in the Vitals app, offering 18-hour battery life and fast charging. Includes support for various workouts, cellular capabilities for calls and texts at 5G speeds, and safety features like Emergency SOS, Fall Detection, and Crash Detection.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/watch-se.png",
+      "stock": 9
+    },
+    {
+      "id": "14",
+      "name": "Apple Watch Series 11",
+      "location": "Phnom Phen",
+      "description": "Immerse yourself in music with these headphones featuring adaptive noise cancellation and 30-hour battery life.",
+      "price": 249.99,
+      "imageUrl": "assets/image/watch-s11.png",
+      "stock": 22
+    },
+    {
+      "id": "15",
+      "name": "Apple Watch Ultra 3",
+      "location": "Phnom Phen",
+      "description": "The sports and adventure watch features a 49mm titanium case, offers 100-metre water resistance, and includes a sapphire crystal display. It provides 42 hours of battery life, mobile connectivity, advanced running metrics, 5G capability, and superior GPS. Key features include a customizable Action button, health insights, and safety capabilities like Emergency SOS, Fall Detection, and Crash Detection.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/watch-ultra.png",
+      "stock": 9
+    }
+  ],
+  "popular": [
+    {
+      "id": "2",
+      "name": "PowerShot G5X MarkII",
+      "location": "Phnom Phen",
+      "description": "Equipped with a 0.39-inch OLED electronic viewfinder, the Canon PowerShot G5 X Mark II features a DIGIC 8 image processor and a 1.0-inch, 20.1-million effective-pixel stacked CMOS sensor. It supports 4K video recording and continuous shooting at up to 30 frames per second, while its 5x zoom lens (24–120 mm equivalent) with a f/1.8–f/2.8 aperture provides high image quality with minimal blur and noise in low light.",
+      "price": 249.99,
+      "imageUrl": "assets/image/ca_PowerShotG5XMarkII.jpg",
+      "stock": 22
+    },
+    {
+      "id": "3",
+      "name": "PowerShotG5X Mark III",
+      "location": "Phnom Phen",
+      "description": "The Canon PowerShot G7 X Mark III features a DIGIC 8 image processor and a 20.1 MP stacked CMOS sensor, enabling 4K video recording and high-speed shooting at 30 fps. It supports live streaming on YouTube and includes a 24–100 mm zoom lens for high-quality images in low light and attractive background blur.",
+      "price": 249.99,
+      "imageUrl": "assets/image/ca_PowerShotG7XMarkIII.jpg",
+      "stock": 22
+    },
+    {
+      "id": "13",
+      "name": "Apple Watch SE 3",
+      "location": "Phnom Phen",
+      "description": "Track sleep quality and wrist temperature detection in the Vitals app, offering 18-hour battery life and fast charging. Includes support for various workouts, cellular capabilities for calls and texts at 5G speeds, and safety features like Emergency SOS, Fall Detection, and Crash Detection.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/watch-se.png",
+      "stock": 9
+    },
+    {
+      "id": "14",
+      "name": "Apple Watch Series 11",
+      "location": "Phnom Phen",
+      "description": "Immerse yourself in music with these headphones featuring adaptive noise cancellation and 30-hour battery life.",
+      "price": 249.99,
+      "imageUrl": "assets/image/watch-s11.png",
+      "stock": 22
+    },
+    {
+      "id": "9",
+      "name": "MacBook Pro 14",
+      "location": "Phnom Phen",
+      "description": "Supercharged by M5, the MacBook Pro, with support from M4 Pro or M4 Max, offers up to 24 hours of battery life. It includes a 14.2 Liquid Retina XDR display, a 12MP Center Stage camera, studio-quality microphones, and six speakers with Spatial Audio, alongside multiple connectivity options.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/mbp-14pro.png",
+      "stock": 9
+    }
+  ],
+  "mostpopular": [
+    {
+      "id": "9",
+      "name": "MacBook Pro 14",
+      "location": "Phnom Phen",
+      "description": "Supercharged by M5, the MacBook Pro, with support from M4 Pro or M4 Max, offers up to 24 hours of battery life. It includes a 14.2 Liquid Retina XDR display, a 12MP Center Stage camera, studio-quality microphones, and six speakers with Spatial Audio, alongside multiple connectivity options.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/mbp-14pro.png",
+      "stock": 9
+    },
+    {
+      "id": "4",
+      "name": "PowerShot SX70 HS",
+      "location": "Phnom Phen",
+      "description": "The PowerShot SX70 HS is a versatile camera with a 65x optical zoom and 20.3 megapixel CMOS sensor. It features a high-definition OLED EVF, redesigned grip, improved button layout, and an eye sensor for automatic display switching. Powered by the DIGIC 8 image processor, it offers Dual Sensing IS, can shoot at 10 frames per second, and supports 4K video and time lapse.",
+      "price": 249.99,
+      "imageUrl": "assets/image/ca_PowerShotSX70HS.jpg",
+      "stock": 22
+    },
+    {
+      "id": "12",
+      "name": "MacBook Air 15",
+      "location": "Phnom Phen",
+      "description": "Lightweight and 2 cm thick, the MacBook Air features a powerful 10-core CPU and GPU from the Apple M4 chip, offering smooth performance and up to 18 hours of battery life. Its 15.3-inch Liquid Retina display supports one billion colors, and the 12MP Center Stage camera enhances video calls, making it ideal for personal use.",
+      "price": 249.99,
+      "imageUrl": "assets/image/macbook-air-13.png",
+      "stock": 22
+    }
+  ],
+  "recents": [
+        {
+      "id": "15",
+      "name": "Apple Watch Ultra 3",
+      "location": "Phnom Phen",
+      "description": "The sports and adventure watch features a 49mm titanium case, offers 100-metre water resistance, and includes a sapphire crystal display. It provides 42 hours of battery life, mobile connectivity, advanced running metrics, 5G capability, and superior GPS. Key features include a customizable Action button, health insights, and safety capabilities like Emergency SOS, Fall Detection, and Crash Detection.",
+      "price": 1499.99,
+      "imageUrl": "assets/image/watch-ultra.png",
+      "stock": 9
+    },
+        {
+      "id": "12",
+      "name": "MacBook Air 15",
+      "location": "Phnom Phen",
+      "description": "Lightweight and 2 cm thick, the MacBook Air features a powerful 10-core CPU and GPU from the Apple M4 chip, offering smooth performance and up to 18 hours of battery life. Its 15.3-inch Liquid Retina display supports one billion colors, and the 12MP Center Stage camera enhances video calls, making it ideal for personal use.",
+      "price": 249.99,
+      "imageUrl": "assets/image/macbook-air-13.png",
+      "stock": 22
+    },
+        {
+      "id": "8",
+      "name": "iPhone 16e",
+      "location": "Phnom Phen",
+      "description": "iOS 16 features a 6.1-inch Super Retina XDR display and is powered by the A18 chip, allowing for 26 hours of video playback. It includes a 48MP Fusion Main camera, a 2x Telephoto lens, a 12MP front camera, and a customizable Action button.",
+      "price": 249.99,
+      "imageUrl": "assets/image/iphone16e.jpg",
+      "stock": 22
+    },
+    {
+      "id": "4",
+      "name": "PowerShot SX70 HS",
+      "location": "Phnom Phen",
+      "description": "The PowerShot SX70 HS is a versatile camera with a 65x optical zoom and 20.3 megapixel CMOS sensor. It features a high-definition OLED EVF, redesigned grip, improved button layout, and an eye sensor for automatic display switching. Powered by the DIGIC 8 image processor, it offers Dual Sensing IS, can shoot at 10 frames per second, and supports 4K video and time lapse.",
+      "price": 249.99,
+      "imageUrl": "assets/image/ca_PowerShotSX70HS.jpg",
+      "stock": 22
+    }
+  ]
+}

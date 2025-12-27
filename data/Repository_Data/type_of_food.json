@@ -1,0 +1,40 @@
+{
+    "food":[
+        {
+            "country" : [
+                {
+                    "cambodia" : [
+                        {
+                            "dessert" : [
+                                {"id": "1", "name": "Chocolate Cake", "image": "placeholder.jpg", "type": "desserts", "description": "Decadent dark chocolate cake.", "price": "6.00", "location": "Chicago", "restaurant": "Sweet Treats", "rate": "4.8", "rating": "980" }
+                            ],
+                            "beverages" : [
+                                {"id": "2", "name": "Cappuccino", "image": "placeholder.jpg", "type": "beverages", "description": "Rich coffee with frothy milk.", "price": "3.50", "location": "NYC", "restaurant": "Coffee House", "rate": "4.8", "rating": "980" }
+                            ]
+                        }
+                    ],
+                    "france" : [
+                        {
+                            "dessert" : [
+                                {"id": "3", "name": "Cake", "image": "placeholder.jpg", "type": "desserts", "description": "Decadent dark chocolate cake.", "price": "6.00", "location": "Chicago", "restaurant": "Sweet Treats", "rate": "4.8", "rating": "980" }
+                            ],
+                            "beverages" : [
+                                {"id": "4", "name": "Ice Latte", "image": "placeholder.jpg", "type": "beverages", "description": "Rich coffee with frothy milk.", "price": "3.50", "location": "NYC", "restaurant": "Coffee House", "rate": "4.8", "rating": "980" }
+                            ]
+                        }
+                    ],
+                    "indian" : [
+                        {
+                            "dessert" : [
+                                {"id": "5", "name": "Chocolate", "image": "placeholder.jpg", "type": "desserts", "description": "Decadent dark chocolate cake.", "price": "6.00", "location": "Chicago", "restaurant": "Sweet Treats", "rate": "4.8", "rating": "980" }
+                            ],
+                            "beverages" : [
+                                {"id": "6", "name": "Hot Cappuccino", "image": "placeholder.jpg", "type": "beverages", "description": "Rich coffee with frothy milk.", "price": "3.50", "location": "NYC", "restaurant": "Coffee House", "rate": "4.8", "rating": "980" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
