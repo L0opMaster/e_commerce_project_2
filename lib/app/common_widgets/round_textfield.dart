@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 class RoundTextfield extends StatelessWidget {
   final TextEditingController? controller;
+  final double left;
+  final double right;
+  final double top;
+
   final String hintText;
+  final String title;
   final TextInputType? keybordTyoe;
   final bool obscureText;
   final double? width;
@@ -15,6 +20,9 @@ class RoundTextfield extends StatelessWidget {
   const RoundTextfield({
     super.key,
     this.padding,
+    this.left = 0,
+    this.right = 0,
+    this.top = 0,
     this.lefticon,
     this.controller,
     this.height,
@@ -22,6 +30,7 @@ class RoundTextfield extends StatelessWidget {
     this.keybordTyoe,
     required this.obscureText,
     this.width,
+    this.title = '',
     this.fontSize = 14,
     this.alignment = TextAlign.start,
     this.borderRadius = const BorderRadius.all(Radius.circular(30)),
@@ -38,23 +47,39 @@ class RoundTextfield extends StatelessWidget {
         color: Colors.white,
         border: Border.all(width: 1, color: Colors.black12),
       ),
-      child: TextField(
-        textAlign: alignment,
-        autocorrect: false,
-        controller: controller,
-        keyboardType: keybordTyoe,
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          contentPadding: padding,
-          //     enabledBorder: OutlineInputBorder(
-          //   borderSide: BorderSide(color: Colors.blue, width: 2.0),
-          // ),
-          enabledBorder: InputBorder.none,
-          focusedBorder: InputBorder.none,
-          hintText: hintText,
-          prefixIcon: lefticon,
-          hintStyle: TextStyle(fontSize: fontSize, fontWeight: FontWeight.w500),
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding: EdgeInsetsGeometry.only(
+              left: left,
+              top: top,
+              right: right,
+            ),
+            child: Text(title),
+          ),
+          TextField(
+            textAlign: alignment,
+            autocorrect: false,
+            controller: controller,
+            keyboardType: keybordTyoe,
+            obscureText: obscureText,
+            decoration: InputDecoration(
+              contentPadding: padding,
+              //     enabledBorder: OutlineInputBorder(
+              //   borderSide: BorderSide(color: Colors.blue, width: 2.0),
+              // ),
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              hintText: hintText,
+              prefixIcon: lefticon,
+              hintStyle: TextStyle(
+                fontSize: fontSize,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

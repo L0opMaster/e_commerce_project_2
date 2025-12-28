@@ -6,6 +6,7 @@ import 'package:flutter_ecommerce/app/model/ecomdata/eproduct_list.dart';
 import 'package:flutter_ecommerce/app/more/more.dart';
 import 'package:flutter_ecommerce/app/offer/offer.dart';
 import 'package:flutter_ecommerce/app/menu/menu_view.dart';
+import 'package:flutter_ecommerce/app/profile/profile_screen.dart';
 import 'package:flutter_ecommerce/app/service/efetch/efetch.dart';
 
 class MainTapbar extends StatefulWidget {
@@ -150,7 +151,7 @@ class _MainTapbarState extends State<MainTapbar> {
                   title: 'Profile',
                   icon: 'assets/image/tab_profile.png',
                   isSelected: selectPage == 4,
-                  onTab: () => _onTabSelected(4, pageWidget: Container()),
+                  onTab: () => _onTabSelected(4, pageWidget: ProfileScreen()),
                 ),
               ],
             ),
