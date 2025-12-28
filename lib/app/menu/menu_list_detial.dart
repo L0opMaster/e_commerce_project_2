@@ -28,6 +28,7 @@ class _MenuListDetialState extends State<MenuListDetial> {
       ),
       body: SingleChildScrollView(
         child: WDetialProduct(
+          productPopular: detialProduct,
           name: detialProduct.name,
           price: detialProduct.price,
           description: detialProduct.description,

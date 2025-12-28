@@ -8,7 +8,9 @@ class ECartservice {
   factory ECartservice() => _instance;
   final ValueNotifier<List<ListEitem>> cartNotifi = ValueNotifier([]);
 
-  void addProduct(Eproduct product) {}
+  void addProduct(Eproduct product) {
+    addProductWithQuantity(product, 1);
+  }
 
   void addProductWithQuantity(Eproduct product, int quantityToAdd) {
     if (quantityToAdd < 0) {

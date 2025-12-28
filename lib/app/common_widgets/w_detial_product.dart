@@ -1,18 +1,23 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
+import 'package:flutter_ecommerce/app/service/efetch/e_cartservice.dart';
+
 class WDetialProduct extends StatefulWidget {
+  final Eproduct productPopular;
   final String imageUrl;
   final String name;
   final double price;
   final String description;
   const WDetialProduct({
-    super.key,
+    Key? key,
+    required this.productPopular,
     required this.imageUrl,
     required this.name,
     required this.price,
     required this.description,
-  });
+  }) : super(key: key);
 
   @override
   State<WDetialProduct> createState() => _WDetialProductState();
@@ -221,7 +226,11 @@ class _WDetialProductState extends State<WDetialProduct> {
                             ),
                           ),
                           ElevatedButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              final ECartservice eCartservice = ECartservice();
+                              eCartservice.addProduct(widget.productPopular);
+                              print(eCartservice.cartNotifi.value);
+                            },
                             label: Text('Add to cart'),
                             icon: Icon(Icons.shopping_cart, size: 20),
                           ),

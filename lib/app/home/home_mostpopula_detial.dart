@@ -31,6 +31,7 @@ class _HomeMostpopulaDetialState extends State<HomeMostpopulaDetial> {
       ),
       body: SingleChildScrollView(
         child: WDetialProduct(
+          productPopular: mostPopuProduct,
           name: mostPopuProduct.name,
           price: mostPopuProduct.price,
           description: mostPopuProduct.description,

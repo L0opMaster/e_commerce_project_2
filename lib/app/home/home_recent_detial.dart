@@ -31,6 +31,7 @@ class _RecentItemState extends State<RecentItem> {
       ),
       body: SingleChildScrollView(
         child: WDetialProduct(
+          productPopular: recentItem,
           name: recentItem.name,
           price: recentItem.price,
           description: recentItem.description,
