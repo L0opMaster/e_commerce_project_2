@@ -10,7 +10,7 @@ class Efetch {
   static final Efetch _instance = Efetch._internal();
   factory Efetch() => _instance;
 
-  static final String _baseUrl = 'https://1dcceda03386.ngrok-free.app';
+  static final String _baseUrl = 'https://8f76b8c2f233.ngrok-free.app';
   final List<String> _paths = [
     '/camera',
     '/phone',

@@ -3,6 +3,7 @@ import 'package:flutter_ecommerce/app/common_widgets/round_menu_button.dart';
 import 'package:flutter_ecommerce/app/home/home_view.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct_list.dart';
+import 'package:flutter_ecommerce/app/more/more.dart';
 import 'package:flutter_ecommerce/app/offer/offer.dart';
 import 'package:flutter_ecommerce/app/menu/menu_view.dart';
 import 'package:flutter_ecommerce/app/service/efetch/efetch.dart';
@@ -95,7 +96,7 @@ class _MainTapbarState extends State<MainTapbar> {
               ),
               shape: const CircleBorder(),
               highlightElevation: 0,
-              elevation: 0,
+              elevation: 2,
               backgroundColor: selectPage == 0
                   ? colorScheme.primary
                   : colorScheme.surface,
@@ -143,7 +144,7 @@ class _MainTapbarState extends State<MainTapbar> {
                   title: 'More',
                   icon: 'assets/image/tab_more.png',
                   isSelected: selectPage == 3,
-                  onTab: () => _onTabSelected(3, pageWidget: Container()),
+                  onTab: () => _onTabSelected(3, pageWidget: MoreScreen()),
                 ),
                 RoundManuTabButton(
                   title: 'Profile',
