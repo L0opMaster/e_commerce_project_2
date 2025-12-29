@@ -20,6 +20,7 @@ class _MainTapbarState extends State<MainTapbar> {
   final Efetch _efetch = Efetch();
   late Future<EproductList> _future;
   List<Eproduct> allProduct = [];
+  List<Eproduct> allProductaction = [];
 
   int selectPage = 0;
   Widget isSlectpage = const Center(child: CircularProgressIndicator());
@@ -68,6 +69,12 @@ class _MainTapbarState extends State<MainTapbar> {
         // Save all products into state variable
         final products = snapshot.data!;
         allProduct = [
+          ...products.camera,
+          ...products.computer,
+          ...products.phone,
+          ...products.watch,
+        ];
+        allProductaction = [
           ...products.camera,
           ...products.computer,
           ...products.phone,

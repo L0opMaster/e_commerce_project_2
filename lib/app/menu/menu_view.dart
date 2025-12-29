@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
 
 import 'package:flutter_ecommerce/app/common_widgets/round_menu_list.dart';
-import 'package:flutter_ecommerce/app/common_widgets/search_button.dart';
 import 'package:flutter_ecommerce/app/menu/menu_list.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct_list.dart';
@@ -64,25 +64,13 @@ class _MenuViewState extends State<MenuView> {
             ),
           ),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.shopping_cart,
-                color: colorScheme.surface, // ✅ theme aware
-                size: 30,
-              ),
-            ),
-          ),
-        ],
+        actions: [Iconcartvalue()],
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SearchButton(), // ensure text inside is theme-aware
+            // SearchButton(), // ensure text inside is theme-aware
             const SizedBox(height: 20),
             Stack(
               alignment: Alignment.centerLeft,

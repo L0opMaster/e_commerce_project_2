@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_ecommerce/app/common_widgets/round_textfield.dart';
 
 class PaymentdetailScreen extends StatefulWidget {
@@ -117,7 +116,7 @@ class _PaymentdetailScreenState extends State<PaymentdetailScreen> {
                 showModalBottomSheet(
                   context: context,
                   builder: (context) {
-                    return Container(
+                    return SizedBox(
                       width: double.infinity,
                       // height: 400,
                       child: Column(

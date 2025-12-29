@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/app/cart/comfirm_checkout.dart';
+import 'package:flutter_ecommerce/app/model/ecomdata/list_eitem.dart';
+import 'package:flutter_ecommerce/app/service/efetch/e_cartservice.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -9,6 +11,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  final ECartservice cartservice = ECartservice();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,86 +31,124 @@ class _CartScreenState extends State<CartScreen> {
         padding: const EdgeInsets.symmetric(vertical: 2.0),
         child: Column(
           children: [
+            SizedBox(height: 10),
             Expanded(
-              child: ListView.builder(
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 4.0,
-                      horizontal: 5.0,
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFFFEF5),
-                        borderRadius: BorderRadius.circular(15),
-                        boxShadow: [
-                          BoxShadow(
-                            // ignore: deprecated_member_use
-                            color: const Color(0xFF353534).withValues(),
-                            offset: const Offset(0, 0),
-                            blurRadius: 8,
-                            spreadRadius: 2,
+              child: ValueListenableBuilder<List<ListEitem>>(
+                valueListenable: cartservice.cartNotifi,
+                builder: (context, cartItem, child) {
+                  return ListView.builder(
+                    itemCount: cartItem.length,
+                    itemBuilder: (context, index) {
+                      final product = cartItem[index].eproduct;
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 5.0,
+                          horizontal: 5.0,
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFFFEF5),
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: [
+                              BoxShadow(
+                                // ignore: deprecated_member_use
+                                color: const Color.fromARGB(
+                                  41,
+                                  136,
+                                  136,
+                                  136,
+                                ).withValues(),
+                                offset: const Offset(0, 0),
+                                blurRadius: 1,
+                                spreadRadius: 4,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 10.0,
-                              horizontal: 10,
-                            ),
-                            child: Image.network(
-                              '',
-                              errorBuilder: (context, error, stackTrace) {
-                                return SizedBox(
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10.0,
+                                  horizontal: 10,
+                                ),
+                                child: Image.asset(
+                                  product.imageUrl,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return SizedBox(
+                                      width: 100,
+                                      height: 70,
+                                      child: Icon(
+                                        Icons.error,
+                                        size: 30,
+                                        color: Theme.of(
+                                          context,
+                                        ).colorScheme.error,
+                                      ),
+                                    );
+                                  },
                                   width: 100,
                                   height: 70,
-                                  child: Icon(
-                                    Icons.error,
-                                    size: 30,
-                                    color: Theme.of(context).colorScheme.error,
-                                  ),
-                                );
-                              },
-                              width: 100,
-                              height: 70,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.titleMedium,
+                                  fit: BoxFit.cover,
                                 ),
-                                Text(
-                                  '',
-                                  style: Theme.of(context).textTheme.titleSmall,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      product.name,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                            fontSize: 15,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    Text(
+                                      '\$ ${product.price}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelMedium
+                                          ?.copyWith(
+                                            color: Colors.orange,
+                                            fontSize: 12,
+                                          ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  cartservice.updateQuantity(
+                                    product.id,
+                                    cartItem[index].quantity - 1,
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.remove_circle_outline,
+                                  size: 25,
+                                ),
+                              ),
+                              Text('${cartItem[index].quantity}'),
+                              IconButton(
+                                onPressed: () {
+                                  cartservice.updateQuantity(
+                                    product.id,
+                                    cartItem[index].quantity + 1,
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.add_circle_outline_outlined,
+                                  size: 25,
+                                ),
+                              ),
+                            ],
                           ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.remove_circle_outline, size: 25),
-                          ),
-                          Text(''),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.add_circle_outline_outlined,
-                              size: 25,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                        ),
+                      );
+                    },
                   );
                 },
               ),
@@ -125,7 +166,7 @@ class _CartScreenState extends State<CartScreen> {
                     // ignore: deprecated_member_use
                     color: const Color(0xFF353534).withOpacity(0.25),
                     offset: const Offset(0, 0),
-                    blurRadius: 8,
+                    blurRadius: 1,
                     spreadRadius: 2,
                   ),
                 ],
@@ -147,13 +188,20 @@ class _CartScreenState extends State<CartScreen> {
                             context,
                           ).textTheme.labelLarge?.copyWith(fontSize: 18),
                         ),
-                        Text(
-                          '\$ ',
-                          style: Theme.of(context).textTheme.labelMedium
-                              ?.copyWith(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontSize: 18,
-                              ),
+                        ValueListenableBuilder<List<ListEitem>>(
+                          valueListenable: cartservice.cartNotifi,
+                          builder: (context, __, _) {
+                            return Text(
+                              '\$ ${cartservice.totalCost.toStringAsFixed(2)}',
+                              style: Theme.of(context).textTheme.labelMedium
+                                  ?.copyWith(
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.primary,
+                                    fontSize: 18,
+                                  ),
+                            );
+                          },
                         ),
                       ],
                     ),

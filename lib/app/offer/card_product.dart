@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
 import 'package:flutter_ecommerce/app/offer/detail_imfrom.dart';
+import 'package:flutter_ecommerce/app/service/efetch/e_cartservice.dart';
 
 class CardProduct extends StatefulWidget {
   final Eproduct allproduct;
@@ -98,6 +99,8 @@ class _CardProductState extends State<CardProduct> {
                       // final cartServices = CartServices();
                       // cartServices.addProduct(product);
                       // print(cartServices.cartNotifier.value);
+                      final cartServices = ECartservice();
+                      cartServices.addProduct(widget.allproduct);
                     },
                     label: Text(
                       'Add to cart',

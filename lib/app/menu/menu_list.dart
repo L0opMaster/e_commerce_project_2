@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:flutter_ecommerce/app/common_widgets/search_button.dart';
+import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
 import 'package:flutter_ecommerce/app/menu/menu_list_detial.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
 
@@ -29,19 +28,13 @@ class _MenuListState extends State<MenuList> {
           ).textTheme.headlineMedium?.copyWith(color: colorScheme.surface),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.shopping_cart, size: 30),
-            ),
-          ),
+          Iconcartvalue(),
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SearchButton(),
+            // SearchButton(),
             ListView.builder(
               itemCount: widget.product.length,
               shrinkWrap: true,

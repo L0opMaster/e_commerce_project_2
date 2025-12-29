@@ -1,40 +1,31 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
-import 'package:flutter_ecommerce/app/cart/cart_screen.dart';
+import 'package:flutter_ecommerce/app/service/efetch/e_cartservice.dart';
 
-class DetailImfrom extends StatelessWidget {
+class DetailImfrom extends StatefulWidget {
   // final Product product;
   final Eproduct product;
   const DetailImfrom({super.key, required this.product});
 
   @override
+  State<DetailImfrom> createState() => _DetailImfromState();
+}
+
+class _DetailImfromState extends State<DetailImfrom> {
+  int upQuantity = 1;
+  @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CartScreen()),
-                );
-              },
-              icon: Icon(
-                Icons.shopping_cart,
-                size: 30,
-                color: Theme.of(context).colorScheme.surface,
-              ),
-            ),
-          ),
-        ],
+        actions: [Iconcartvalue()],
         // backgroundColor: Theme.of(context).colorScheme.surface,
         iconTheme: IconThemeData(color: Theme.of(context).colorScheme.surface),
         title: Text(
-          product.name,
+          widget.product.name,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             color: Theme.of(context).colorScheme.surface,
           ),
@@ -57,7 +48,7 @@ class DetailImfrom extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Image.asset(
-                  product.imageUrl,
+                  widget.product.imageUrl,
                   errorBuilder: (context, error, stackTrace) {
                     return Center(
                       child: SizedBox(
@@ -95,7 +86,7 @@ class DetailImfrom extends StatelessWidget {
 
                   children: [
                     Text(
-                      product.name,
+                      widget.product.name,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -104,7 +95,7 @@ class DetailImfrom extends StatelessWidget {
 
                     const SizedBox(height: 10),
                     Text(
-                      '\$${product.price}',
+                      '\$${widget.product.price}',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -112,7 +103,7 @@ class DetailImfrom extends StatelessWidget {
 
                     const SizedBox(height: 10),
                     Text(
-                      'Available to add: ${product.stock} (Total Stock: ${product.stock})',
+                      'Available to add: ${widget.product.stock} (Total Stock: ${widget.product.stock})',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: Theme.of(context).colorScheme.secondary,
                       ),
@@ -129,7 +120,7 @@ class DetailImfrom extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      product.description,
+                      widget.product.description,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: colorScheme.secondary,
                       ),
@@ -139,16 +130,28 @@ class DetailImfrom extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (upQuantity > 1) {
+                              setState(() {
+                                upQuantity--;
+                              });
+                            }
+                          },
                           icon: Icon(
                             Icons.remove_circle_outline,
                             size: 30,
                             color: colorScheme.primary,
                           ),
                         ),
-                        Text('1'),
+                        Text('${upQuantity}'),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (upQuantity < widget.product.stock) {
+                              setState(() {
+                                upQuantity++;
+                              });
+                            }
+                          },
                           icon: Icon(
                             Icons.add_circle_outline,
                             size: 30,
@@ -165,10 +168,8 @@ class DetailImfrom extends StatelessWidget {
                   // backgroundColor: Theme.of(context).colorScheme.onPrimary,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CartScreen()),
-                  );
+                  final addTocart = ECartservice();
+                  addTocart.addProductWithQuantity(widget.product, upQuantity);
                 },
                 label: Padding(
                   padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),

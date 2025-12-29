@@ -2,28 +2,35 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
+import 'package:flutter_ecommerce/app/model/ecomdata/list_eitem.dart';
 import 'package:flutter_ecommerce/app/service/efetch/e_cartservice.dart';
 
 class WDetialProduct extends StatefulWidget {
   final Eproduct productPopular;
+  final int stock;
+  final String id;
   final String imageUrl;
   final String name;
   final double price;
   final String description;
   const WDetialProduct({
-    Key? key,
+    super.key,
     required this.productPopular,
+    required this.stock,
+    required this.id,
     required this.imageUrl,
     required this.name,
     required this.price,
     required this.description,
-  }) : super(key: key);
+  });
 
   @override
   State<WDetialProduct> createState() => _WDetialProductState();
 }
 
 class _WDetialProductState extends State<WDetialProduct> {
+  final ECartservice cartservice = ECartservice();
+  int selectedQuantity = 1;
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -145,10 +152,29 @@ class _WDetialProductState extends State<WDetialProduct> {
                       fontSize: 20,
                     ),
                   ),
+
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (selectedQuantity < 1) {
+                            setState(() {
+                              selectedQuantity--;
+                            });
+                          }
+
+                          // final items = cartservice.cartNotifi.value;
+                          // final index = items.indexWhere(
+                          //   (e) => e.eproduct.id == widget.productPopular.id,
+                          // );
+                          // if (index != -1) {
+                          //   final item = items[index];
+                          //   cartservice.updateQuantity(
+                          //     item.eproduct.id,
+                          //     item.quantity - 1,
+                          //   );
+                          // }
+                        },
                         icon: Icon(
                           Icons.remove_circle_outline,
                           size: 30,
@@ -156,10 +182,42 @@ class _WDetialProductState extends State<WDetialProduct> {
                         ),
                       ),
                       SizedBox(width: 20),
-                      Text('2', style: TextStyle(color: colorScheme.primary)),
+                      ValueListenableBuilder<List<ListEitem>>(
+                        valueListenable: cartservice.cartNotifi,
+                        builder: (context, valueitem, __) {
+                          // final index = valueitem.indexWhere(
+                          //   (e) => e.eproduct.id == widget.productPopular.id,
+                          // );
+
+                          // final quantity = index == -1
+                          //     ? 1
+                          //     : valueitem[index].quantity;
+                          return Text(
+                            '$selectedQuantity',
+                            style: TextStyle(color: colorScheme.primary),
+                          );
+                        },
+                      ),
                       SizedBox(width: 20),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (selectedQuantity < widget.stock) {
+                            setState(() => selectedQuantity++);
+                          }
+
+                          // final items = cartservice.cartNotifi.value;
+                          // final index = items.indexWhere(
+                          //   (e) => e.eproduct.id == widget.productPopular.id,
+                          // );
+
+                          // if (index != -1) {
+                          //   final item = items[index];
+                          //   cartservice.updateQuantity(
+                          //     item.eproduct.id,
+                          //     item.quantity + 1,
+                          //   );
+                          // }
+                        },
                         icon: Icon(
                           Icons.add_circle_outline,
                           size: 30,
@@ -219,7 +277,7 @@ class _WDetialProductState extends State<WDetialProduct> {
                             ),
                           ),
                           Text(
-                            '\$',
+                            '\$ ${widget.price * selectedQuantity}',
                             style: TextStyle(
                               fontSize: 25,
                               color: colorScheme.secondary,
@@ -228,7 +286,10 @@ class _WDetialProductState extends State<WDetialProduct> {
                           ElevatedButton.icon(
                             onPressed: () {
                               final ECartservice eCartservice = ECartservice();
-                              eCartservice.addProduct(widget.productPopular);
+                              eCartservice.addProductWithQuantity(
+                                widget.productPopular,
+                                selectedQuantity,
+                              );
                               print(eCartservice.cartNotifi.value);
                             },
                             label: Text('Add to cart'),
