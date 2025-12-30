@@ -51,10 +51,13 @@ class _OfferViewState extends State<OfferView> {
       appBar: AppBar(title: const Text('Offer')),
       body: Column(
         children: [
-          SearchAnChor(
-            product: allProducts,
-            onSelected: _onProductSelected,
-            onChanged: _onSearchChanged,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: SearchAnChor(
+              product: allProducts,
+              onSelected: _onProductSelected,
+              onChanged: _onSearchChanged,
+            ),
           ),
           Expanded(
             child: displayedProducts.isEmpty

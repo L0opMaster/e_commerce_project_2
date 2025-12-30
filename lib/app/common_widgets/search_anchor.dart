@@ -19,9 +19,15 @@ class SearchAnChor extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10, bottom: 10, left: 8, right: 8),
       child: SearchAnchor(
+        viewElevation: 1,
+        keyboardType: TextInputType.text,
+        viewSide: BorderSide(width: 1, color: Colors.black),
         builder: (context, controller) {
           return SearchBar(
             controller: controller,
+            side: WidgetStateProperty.all(
+              BorderSide(width: 0.5, color: Colors.black26),
+            ),
             surfaceTintColor: WidgetStateProperty.all(Colors.white),
             backgroundColor: WidgetStateProperty.all(Colors.white),
             leading: const Padding(

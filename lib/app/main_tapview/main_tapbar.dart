@@ -135,7 +135,10 @@ class _MainTapbarState extends State<MainTapbar> {
                   isSelected: selectPage == 1,
                   onTab: () => _onTabSelected(
                     1,
-                    pageWidget: MenuView(products: products),
+                    pageWidget: MenuView(
+                      products: products,
+                      allProduct: allProduct,
+                    ),
                   ),
                 ),
                 RoundManuTabButton(
