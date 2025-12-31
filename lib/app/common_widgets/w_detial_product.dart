@@ -157,7 +157,7 @@ class _WDetialProductState extends State<WDetialProduct> {
                     children: [
                       IconButton(
                         onPressed: () {
-                          if (selectedQuantity < 1) {
+                          if (selectedQuantity > 1) {
                             setState(() {
                               selectedQuantity--;
                             });

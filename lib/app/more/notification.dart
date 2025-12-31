@@ -1,5 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
+
+import 'package:flutter_ecommerce/app/model/ecomdata/list_eitem.dart';
+
+import 'package:flutter_ecommerce/app/service/efetch/e_cartservice.dart';
 
 class NotificationScreen extends StatefulWidget {
   final Map<String, String> title;
@@ -10,66 +15,65 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _InboxScreenState extends State<NotificationScreen> {
+  final ECartservice cartservice = ECartservice();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title["title"].toString()),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.shopping_cart, size: 30),
-            ),
-          ),
-        ],
+        actions: [Iconcartvalue()],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 20),
-            ListView.builder(
-              itemCount: 44,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(width: 0.5, color: Colors.black38),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsGeometry.all(10),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.dark_mode_outlined,
-                            size: 20,
-                            color: Colors.orange,
-                          ),
-                          SizedBox(width: 15),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+            ValueListenableBuilder<List<ListEitem>>(
+              valueListenable: cartservice.cartNotifi,
+              builder: (context, item, child) {
+                return ListView.builder(
+                  itemCount: item.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final Item = item[index].eproduct;
+                    return Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(width: 0.5, color: Colors.black38),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsGeometry.all(10),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(
-                                'Your orders has been picked up',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                              Icon(
+                                Icons.dark_mode_outlined,
+                                size: 20,
+                                color: Colors.orange,
                               ),
-                              Text('Now', style: TextStyle(fontSize: 12)),
+                              SizedBox(width: 15),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'You has added ${Item.name} to your cart',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text('Now', style: TextStyle(fontSize: 12)),
+                                ],
+                              ),
                             ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 );
               },
             ),

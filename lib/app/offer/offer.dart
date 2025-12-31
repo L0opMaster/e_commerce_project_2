@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
 import 'package:flutter_ecommerce/app/common_widgets/search_anchor.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
 import 'package:flutter_ecommerce/app/offer/card_product.dart';
@@ -48,7 +49,7 @@ class _OfferViewState extends State<OfferView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Offer')),
+      appBar: AppBar(title: const Text('Offer'), actions: [Iconcartvalue()]),
       body: Column(
         children: [
           Padding(

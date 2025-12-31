@@ -161,7 +161,7 @@ class _MenuViewState extends State<MenuView> {
                                 );
                               },
                               imageUrl: image[index]["image"].toString(),
-                              // ✅ inside RoundMenuList, make text theme-aware
+                              //inside RoundMenuList, make text theme-aware
                             ),
                           );
                         },

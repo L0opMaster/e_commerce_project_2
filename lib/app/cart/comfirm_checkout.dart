@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/app/cart/checkout.dart';
 
 class ComfirmCheckout extends StatelessWidget {
   const ComfirmCheckout({super.key});
@@ -57,7 +58,12 @@ class ComfirmCheckout extends StatelessWidget {
                   //   surfaceTintColor: Colors.transparent,
                   //   elevation: 0,
                   // ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Checkout()),
+                    );
+                  },
                   child: Text(
                     'Confirm',
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(

@@ -1,18 +1,22 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
 import 'package:flutter_ecommerce/app/common_widgets/search_anchor.dart';
 import 'package:flutter_ecommerce/app/home/home_mostpopula_detial.dart';
 import 'package:flutter_ecommerce/app/home/home_popular_detial.dart';
 import 'package:flutter_ecommerce/app/home/home_recent_detial.dart';
+import 'package:flutter_ecommerce/app/menu/menu_list.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
+import 'package:flutter_ecommerce/app/model/ecomdata/eproduct_list.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/list_eitem.dart';
 import 'package:flutter_ecommerce/app/offer/detail_imfrom.dart';
 import 'package:flutter_ecommerce/app/service/efetch/e_cartservice.dart';
 
 class HomeView extends StatefulWidget {
+  final EproductList product;
   final List<Eproduct> allproduct;
-  const HomeView({super.key, required this.allproduct});
+  const HomeView({super.key, required this.product, required this.allproduct});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -22,6 +26,20 @@ class _HomeViewState extends State<HomeView> {
   bool isSearching = false;
   late List<Eproduct> allproducts;
   late List<Eproduct> displayProduct;
+  List<Eproduct> _viewProductByCategory(String title) {
+    switch (title) {
+      case 'Camera':
+        return widget.product.camera;
+      case 'Phone':
+        return widget.product.phone;
+      case 'Computer':
+        return widget.product.computer;
+      case 'Watch':
+        return widget.product.watch;
+      default:
+        return [];
+    }
+  }
 
   @override
   void initState() {
@@ -66,6 +84,7 @@ class _HomeViewState extends State<HomeView> {
     final cartservices = ECartservice();
     var media = MediaQuery.of(context).size;
     // Example: Popular, Most Popular, Recent
+
     final popular = widget.allproduct.take(4).toList();
     final mostPopular = widget.allproduct.skip(4).take(3).toList();
     final recents = widget.allproduct.skip(7).take(4).toList();
@@ -168,7 +187,21 @@ class _HomeViewState extends State<HomeView> {
                                   return Padding(
                                     padding: const EdgeInsets.only(right: 40.0),
                                     child: InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        final category =
+                                            listcart[index]["title"].toString();
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MenuList(
+                                              title: listcart[index],
+                                              product: _viewProductByCategory(
+                                                category,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
                                       child: Column(
                                         children: [
                                           ClipOval(

@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
 import 'package:flutter_ecommerce/app/more/inbox.dart';
 import 'package:flutter_ecommerce/app/more/infomation.dart';
 import 'package:flutter_ecommerce/app/more/notification.dart';
@@ -28,15 +29,7 @@ class _MoreScreenState extends State<MoreScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('More', style: Theme.of(context).textTheme.headlineMedium),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.shopping_cart, size: 30),
-            ),
-          ),
-        ],
+        actions: [Iconcartvalue()],
       ),
       body: Column(
         children: [

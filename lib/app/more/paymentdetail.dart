@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/app/common_widgets/round_textfield.dart';
+import 'package:flutter_ecommerce/app/common_widgets/round_textfield_copy.dart';
 
 class PaymentdetailScreen extends StatefulWidget {
   final Map<String, String> title;
@@ -118,7 +119,7 @@ class _PaymentdetailScreenState extends State<PaymentdetailScreen> {
                   builder: (context) {
                     return SizedBox(
                       width: double.infinity,
-                      // height: 400,
+
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,23 +148,27 @@ class _PaymentdetailScreenState extends State<PaymentdetailScreen> {
                                 SizedBox(height: 10),
                                 Divider(height: 1, thickness: 1),
                                 SizedBox(height: 10),
-                                RoundTextfield(
+                                RoundTextfieldCopy(
                                   hintText: 'Card number',
                                   obscureText: false,
-                                  padding: EdgeInsets.only(left: 30),
+
+                                  padding: EdgeInsets.only(
+                                    left: 40,
+                                    // bottom: 30,
+                                  ),
                                 ),
                                 SizedBox(height: 10),
                                 Row(
                                   children: [
                                     Expanded(child: Text('Expirl')),
-                                    RoundTextfield(
+                                    RoundTextfieldCopy(
                                       width: 100,
                                       hintText: 'MM',
                                       padding: EdgeInsets.only(left: 30),
                                       obscureText: false,
                                     ),
                                     SizedBox(width: 40),
-                                    RoundTextfield(
+                                    RoundTextfieldCopy(
                                       width: 100,
                                       hintText: 'YYYY',
                                       padding: EdgeInsets.only(left: 30),
@@ -172,19 +177,19 @@ class _PaymentdetailScreenState extends State<PaymentdetailScreen> {
                                   ],
                                 ),
                                 SizedBox(height: 10),
-                                RoundTextfield(
+                                RoundTextfieldCopy(
                                   hintText: 'Secuirity Code',
                                   obscureText: false,
                                   padding: EdgeInsets.only(left: 30),
                                 ),
                                 SizedBox(height: 10),
-                                RoundTextfield(
+                                RoundTextfieldCopy(
                                   hintText: 'First name',
                                   obscureText: false,
                                   padding: EdgeInsets.only(left: 30),
                                 ),
                                 SizedBox(height: 10),
-                                RoundTextfield(
+                                RoundTextfieldCopy(
                                   hintText: 'Last name',
                                   obscureText: false,
                                   padding: EdgeInsets.only(left: 30),

@@ -86,7 +86,7 @@ class _MainTapbarState extends State<MainTapbar> {
 
         // Initialize HomeView only once after data loaded
         if (selectPage == 0 && isSlectpage is! HomeView) {
-          isSlectpage = HomeView(allproduct: allProduct);
+          isSlectpage = HomeView(allproduct: allProduct, product: products,);
         }
 
         return Scaffold(
@@ -100,7 +100,7 @@ class _MainTapbarState extends State<MainTapbar> {
             child: FloatingActionButton(
               onPressed: () => _onTabSelected(
                 0,
-                pageWidget: HomeView(allproduct: allProduct),
+                pageWidget: HomeView(allproduct: allProduct, product: products,),
               ),
               shape: const CircleBorder(),
               highlightElevation: 0,
@@ -126,6 +126,7 @@ class _MainTapbarState extends State<MainTapbar> {
             padding: const EdgeInsets.only(top: 20, left: 25, right: 25),
             shape: const CircularNotchedRectangle(),
             color: colorScheme.primary,
+            
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
