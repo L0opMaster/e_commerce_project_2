@@ -143,7 +143,7 @@ class _DetailImfromState extends State<DetailImfrom> {
                             color: colorScheme.primary,
                           ),
                         ),
-                        Text('${upQuantity}'),
+                        Text('$upQuantity'),
                         IconButton(
                           onPressed: () {
                             if (upQuantity < widget.product.stock) {

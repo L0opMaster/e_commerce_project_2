@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/app/home/home_view.dart';
 import 'package:flutter_ecommerce/app/main_tapview/main_tapbar.dart';
 import 'package:flutter_ecommerce/app/service/efetch/e_cartservice.dart';
 
@@ -108,7 +107,7 @@ class _CheckhoutState extends State<Checkout> {
                     ],
                   ),
                 );
-              }).toList(),
+              }),
 
               const SizedBox(height: 10),
               const Divider(thickness: 1, height: 2, color: Colors.grey),

@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/app/common_widgets/round_textfield.dart';
 import 'package:flutter_ecommerce/app/common_widgets/round_textfield_copy.dart';
 
 class PaymentdetailScreen extends StatefulWidget {
