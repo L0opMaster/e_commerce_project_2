@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
+import 'package:flutter_ecommerce/app/common_widgets/icon_cart_value.dart';
 import 'package:flutter_ecommerce/app/more/inbox.dart';
 import 'package:flutter_ecommerce/app/more/infomation.dart';
 import 'package:flutter_ecommerce/app/more/notification.dart';
@@ -103,6 +103,7 @@ class _MoreScreenState extends State<MoreScreen> {
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
+                              // ignore: deprecated_member_use
                               color: Color(0xFF000000).withOpacity(0.9),
                               offset: Offset(0, 0),
                               blurRadius: 10,
@@ -138,6 +139,7 @@ class _MoreScreenState extends State<MoreScreen> {
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
+                              // ignore: deprecated_member_use
                               color: Color(0xFF000000).withOpacity(0.9),
                               offset: Offset(0, 0),
                               blurRadius: 10,

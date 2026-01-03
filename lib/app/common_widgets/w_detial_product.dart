@@ -290,6 +290,7 @@ class _WDetialProductState extends State<WDetialProduct> {
                                 widget.productPopular,
                                 selectedQuantity,
                               );
+                              // ignore: avoid_print
                               print(eCartservice.cartNotifi.value);
                             },
                             label: Text('Add to cart'),

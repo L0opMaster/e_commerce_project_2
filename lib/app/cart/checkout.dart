@@ -59,6 +59,7 @@ class _CheckhoutState extends State<Checkout> {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.34),
               offset: const Offset(0, 0),
               blurRadius: 13,

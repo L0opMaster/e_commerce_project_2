@@ -44,6 +44,7 @@ class _PaymentdetailScreenState extends State<PaymentdetailScreen> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
+                  // ignore: deprecated_member_use
                   color: Color(0xFF777575).withOpacity(0.59),
                   offset: Offset(0, 4),
                   blurRadius: 11,

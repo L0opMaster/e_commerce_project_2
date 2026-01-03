@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
+import 'package:flutter_ecommerce/app/common_widgets/icon_cart_value.dart';
 
 import 'package:flutter_ecommerce/app/model/ecomdata/list_eitem.dart';
 
@@ -35,7 +35,7 @@ class _InboxScreenState extends State<NotificationScreen> {
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    final Item = item[index].eproduct;
+                    final items = item[index].eproduct;
                     return Container(
                       decoration: BoxDecoration(
                         border: Border(
@@ -55,18 +55,29 @@ class _InboxScreenState extends State<NotificationScreen> {
                                 color: Colors.orange,
                               ),
                               SizedBox(width: 15),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'You has added ${Item.name} to your cart',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                              Expanded(
+                                child: SizedBox(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'You has added ${items.name} to your cart',
+                                        textAlign: TextAlign.start,
+                                        softWrap: true,
+                                        maxLines: 5,
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Now',
+                                        style: TextStyle(fontSize: 12),
+                                      ),
+                                    ],
                                   ),
-                                  Text('Now', style: TextStyle(fontSize: 12)),
-                                ],
+                                ),
                               ),
                             ],
                           ),

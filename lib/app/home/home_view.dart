@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
+import 'package:flutter_ecommerce/app/common_widgets/icon_cart_value.dart';
 import 'package:flutter_ecommerce/app/common_widgets/search_anchor.dart';
 import 'package:flutter_ecommerce/app/home/home_mostpopula_detial.dart';
 import 'package:flutter_ecommerce/app/home/home_popular_detial.dart';
@@ -554,6 +554,7 @@ class _HomeViewState extends State<HomeView> {
           title: Text(product.name),
           subtitle: Text('\$${product.price}'),
           onTap: () {
+            // ignore: avoid_print
             print('push');
 
             Navigator.of(context, rootNavigator: true).push(

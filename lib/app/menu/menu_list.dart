@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/app/common_widgets/iconCartValue.dart';
+import 'package:flutter_ecommerce/app/common_widgets/icon_cart_value.dart';
 import 'package:flutter_ecommerce/app/common_widgets/search_anchor.dart';
 import 'package:flutter_ecommerce/app/menu/menu_list_detial.dart';
 import 'package:flutter_ecommerce/app/model/ecomdata/eproduct.dart';
@@ -21,7 +21,6 @@ class _MenuListState extends State<MenuList> {
   late List<Eproduct> category;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     category = widget.product;
     displayProduct = category;
@@ -89,6 +88,7 @@ class _MenuListState extends State<MenuList> {
                       final category = widget.product[index];
                       return InkWell(
                         onTap: () {
+                          // ignore: avoid_print
                           print('Ontab');
                           Navigator.push(
                             context,
@@ -208,6 +208,7 @@ class _MenuListState extends State<MenuList> {
           title: Text(product.name),
           subtitle: Text('\$${product.price}'),
           onTap: () {
+            // ignore: avoid_print
             print('push');
 
             Navigator.of(context, rootNavigator: true).push(
